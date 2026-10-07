@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="dashboard-container">
+    <h2 style="color: white; text-align: center; margin-bottom: 2rem;">Your Dashboard</h2>
+    
+    <div class="stats" style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem;">
+        <div class="stat-card" style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px; color: white; text-align: center;">
+            <h3 style="font-size: 2rem; margin: 0;">{{ stats.total_flashcards }}</h3>
+            <p>Total Flashcards</p>
+        </div>
+        <div class="stat-card" style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px; color: white; text-align: center;">
+            <h3 style="font-size: 2rem; margin: 0;">{{ stats.unique_pdfs }}</h3>
+            <p>PDFs Processed</p>
+        </div>
+    </div>
+
+    <div class="dashboard-actions" style="text-align: center; margin: 2rem 0;">
+        <a href="/" class="btn" style="display: inline-block; padding: 1rem 2rem; background: #667eea; color: white; text-decoration: none; border-radius: 5px; margin: 0.5rem;">
+            <i class="fas fa-plus"></i> Generate New Flashcards
+        </a>
+        <a href="/flashcards" class="btn" style="display: inline-block; padding: 1rem 2rem; background: #4CAF50; color: white; text-decoration: none; border-radius: 5px; margin: 0.5rem;">
+            <i class="fas fa-file-alt"></i> View Text Flashcards
+        </a>
+    </div>
+
+    <div class="flashcards-section">
+        <h3 style="color: white; margin-bottom: 1rem; text-align: center;">Your Flashcards ({{ total_count }})</h3>
+        
+        {% if flashcards and flashcards|length > 0 %}
+        <div class="flashcards-grid">
+            {% for card in flashcards %}
+            <div class="flashcard-item" style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px; color: white; margin-bottom: 1rem; border-left: 4px solid #667eea;">
+                <div class="flashcard-header" style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                    <div class="flashcard-source" style="font-size: 0.9rem; opacity: 0.8;">
+                        {{ card.source_pdf or "Unknown Source" }}
+                    </div>
+                    <button class="delete-btn" onclick="deleteFlashcard('{{ card.id }}')" style="background: #ff6b6b; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; font-size: 0.8rem;">
+                        <i class="fas fa-trash"></i> Delete
+                    </button>
+                </div>
+                <div class="flashcard-content">
+                    <h4 style="margin-bottom: 1rem; color: #fff;">Q: {{ card.question }}</h4>
+                    <p style="margin: 0; opacity: 0.9;"><strong style="color: #4CAF50;">A:</strong> {{ card.answer }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="no-flashcards" style="text-align: center; padding: 3rem; background: rgba(255,255,255,0.1); border-radius: 10px; color: white;">
+            <h3>No flashcards yet! 🎴</h3>
+            <p>Get started by generating your first set of flashcards.</p>
+            <a href="/" class="btn" style="display: inline-block; padding: 1rem 2rem; background: #667eea; color: white; text-decoration: none; border-radius: 5px; margin-top: 1rem;">
+                <i class="fas fa-plus"></i> Create Flashcards
+            </a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<script>
+async function deleteFlashcard(flashcardId) {
+    if (confirm('Are you sure you want to delete this flashcard?')) {
+        try {
+            const response = await fetch('/api/flashcards/' + flashcardId, { 
+                method: 'DELETE' 
+            });
+            const data = await response.json();
+            
+            if (data.success) {
+                alert('Flashcard deleted successfully!');
+                location.reload();
+            } else {
+                alert('Error: ' + (data.error || 'Failed to delete flashcard'));
+            }
+        } catch (error) {
+            alert('Network error. Please try again.');
+        }
+    }
+}
+</script>
+{% endblock %}

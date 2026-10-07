@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="display: flex; justify-content: center; align-items: center; padding: 2rem; min-height: 60vh;">
+    <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 10px; width: 100%; max-width: 400px; color: white;">
+        <h2 style="text-align: center; margin-bottom: 2rem;">🔐 Login</h2>
+        
+        <form id="loginForm">
+            <div style="margin-bottom: 1rem;">
+                <label style="display: block; margin-bottom: 0.5rem;">Email:</label>
+                <input type="email" id="email" required style="width: 100%; padding: 0.8rem; border: none; border-radius: 5px;">
+            </div>
+            <div style="margin-bottom: 1.5rem;">
+                <label style="display: block; margin-bottom: 0.5rem;">Password:</label>
+                <input type="password" id="password" required style="width: 100%; padding: 0.8rem; border: none; border-radius: 5px;">
+            </div>
+            <button type="submit" style="width: 100%; padding: 1rem; background: #667eea; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 1rem;">
+                Login
+            </button>
+        </form>
+        
+        <p style="text-align: center; margin-top: 1.5rem; opacity: 0.8;">
+            Demo: demo@flashcard.ai / demo123
+        </p>
+        
+        <p style="text-align: center; margin-top: 1rem;">
+            <a href="/register" style="color: white;">Don't have an account? Register</a>
+        </p>
+    </div>
+</div>
+
+<script>
+document.getElementById('loginForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    try {
+        const response = await fetch('/auth/login', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({email: email, password: password})
+        });
+
+        const data = await response.json();
+        
+        if (data.success) {
+            window.location.href = '/dashboard';
+        } else {
+            alert('Error: ' + (data.error || 'Login failed'));
+        }
+    } catch (error) {
+        alert('Network error. Please try again.');
+    }
+});
+
+// Auto-fill demo credentials
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('email').value = 'demo@flashcard.ai';
+    document.getElementById('password').value = 'demo123';
+});
+</script>
+{% endblock %}

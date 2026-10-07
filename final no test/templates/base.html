@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Flashcard Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        .navbar {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar h1 {
+            color: white;
+            font-size: 1.8rem;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: background 0.3s ease;
+        }
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: white;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1><i class="fas fa-brain"></i> AI Flashcard Generator</h1>
+            <div class="nav-links">
+                {% if session and session.user %}
+                    <a href="/" class="nav-link">Home</a>
+                    <a href="/dashboard" class="nav-link">My Flashcards</a>
+                    <span class="nav-link" style="background: none;">Welcome, {{ session.user.email }}</span>
+                    <a href="/logout" class="nav-link">Logout</a>
+                {% else %}
+                    <a href="/" class="nav-link">Home</a>
+                    <a href="/login" class="nav-link">Login</a>
+                    <a href="/register" class="nav-link">Register</a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <p>Built with Python, Flask, and AI Magic ✨</p>
+    </footer>
+
+    <!-- FIXED: Changed to static.js -->
+    <script src="{{ url_for('static', filename='static.js') }}"></script>
+</body>
+</html>

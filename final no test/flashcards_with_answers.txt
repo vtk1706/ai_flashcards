@@ -1,0 +1,27 @@
+=== FLASHCARDS WITH ANSWERS ===
+
+Q1: What does a chemical reaction change in matter?
+A: A chemical reaction changes the properties of matter, such as its composition or structure, resulting in a new substance with somewhat changed characteristics. This change is often irreversible and cannot be easily reversed. The outcome of a chemical reaction can be observed through physical changes, such as color, odor, or texture.
+--------------------------------------------------
+
+Q2: What are the observations that help determine whether a chemical reaction has taken place?
+A: To determine if a chemical reaction has taken place, observe changes such as color change, release of gas or vapor, formation of a precipitate, or a change in odor. These visual cues can indicate that a substance has undergone a transformation. Additionally, measuring the mass of reactants and products before and after the reaction can also confirm the occurrence of a chemical reaction.
+--------------------------------------------------
+
+Q3: What is the word-equation for the burning of a magnesium ribbon in oxygen?
+A: The word-equation for the burning of a magnesium ribbon in oxygen is:
+Magnesium + Oxygen → Magnesium oxide
+--------------------------------------------------
+
+Q4: What are the reactants and products in the word-equation for the burning of a magnesium ribbon in oxygen?
+A: The reactants are magnesium and oxygen. The product is magnesium oxide. This is a word-equation for the burning of a magnesium ribbon in oxygen.
+--------------------------------------------------
+
+Q5: Where is the arrowhead pointing in a word-equation to show the direction of the reaction?
+A: In a word-equation, the arrowhead points to the right (RHS) to show the direction of the reaction. This indicates that the products are formed from the reactants. The left side (LHS) represents the reactants and is followed by the arrow pointing to the products on the right side (RHS).
+--------------------------------------------------
+
+Q6: What does the plus sign (+) between the substances on either side of an arrow represent in a word-equation?
+A: The plus sign (+) between substances on either side of an arrow in a word-equation represents a combination or joining of those substances. It indicates that the substances are being linked together chemically. This symbol is used to show that the reactants are being combined to form products.
+--------------------------------------------------
+

@@ -1,0 +1,279 @@
+Chapter-6
+Tree Data Structure
+We read the linear data structures like an array, linked list,
+stack and queue in which all the elements are arranged in a
+sequential manner. The different data structures are used for
+different kinds of data.
+Some factors are considered for choosing the data
+structure:
+ What type of data needs to be stored?: It might be a
+possibility that a certain data structure can be the best fit
+for some kind of data.
+ Cost of operations: If we want to minimize the cost for
+the operations for the most frequently performed
+operations. For example, we have a simple list on which
+we have to perform the search operation; then, we can
+create an array in which elements are stored in sorted
+order to perform the binary search. The binary search
+works very fast for the simple list as it divides the search
+space into half.
+ Memory usage: Sometimes, we want a data structure
+that utilizes less memory.
+A tree is also one of the data structures that represent
+hierarchical data. Suppose we want to show the employees
+and their positions in the hierarchical form then it can be
+represented as shown below:
+
+the above tree shows the organization hierarchy of some company.
+In the above structure, john is the CEO of the company, and John has
+two direct reports named as Steve and Rohan. Steve has three direct
+reports named Lee, Bob, Ella where Steve is a manager. Bob has two
+direct reports named Sal and Emma. Emma has two direct reports
+named Tom and Raj. Tom has one direct report named Bill. This
+particular logical structure is known as a Tree. Its structure is similar
+to the real tree, so it is named a Tree. In this structure, the root is at
+the top, and its branches are moving in a downward direction.
+Therefore, we can say that the Tree data structure is an efficient way
+of storing the data in a hierarchical way.
+Let&#39;s understand some key points of the Tree data structure.
+ A tree data structure is defined as a collection of objects or
+entities known as nodes that are linked together to represent
+or simulate hierarchy.
+
+ A tree data structure is a non-linear data structure because it
+does not store in a sequential manner. It is a hierarchical
+structure as elements in a Tree are arranged in multiple levels.
+ In the Tree data structure, the topmost node is known as a root
+node. Each node contains some data, and data can be of any
+type. In the above tree structure, the node contains the name
+of the employee, so the type of data would be a string.
+ Each node contains some data and the link or reference of
+other nodes that can be called children.
+Some basic terms used in Tree data structure.
+Let&#39;s consider the tree structure, which is shown below:
+
+n the above structure, each node is labeled with some number. Each
+arrow shown in the above figure is known as a link between the two
+nodes.
+ Root: The root node is the topmost node in the tree hierarchy.
+In other words, the root node is the one that doesn&#39;t have any
+parent. In the above structure, node numbered 1 is the root
+node of the tree. If a node is directly linked to some other
+node, it would be called a parent-child relationship.
+ Child node: If the node is a descendant of any node, then the
+node is known as a child node.
+ Parent: If the node contains any sub-node, then that node is
+said to be the parent of that sub-node.
+ Sibling: The nodes that have the same parent are known as
+siblings.
+ Leaf Node:- The node of the tree, which doesn&#39;t have any child
+node, is called a leaf node. A leaf node is the bottom-most
+node of the tree. There can be any number of leaf nodes
+present in a general tree. Leaf nodes can also be called external
+nodes.
+ Internal nodes: A node has atleast one child node known as an
+internal
+ Ancestor node:- An ancestor of a node is any predecessor node
+on a path from the root to that node. The root node doesn&#39;t
+have any ancestors. In the tree shown in the above image,
+nodes 1, 2, and 5 are the ancestors of node 10.
+
+ Descendant: The immediate successor of the given node is
+known as a descendant of a node. In the above figure, 10 is the
+descendant of node 5.
+Properties of Tree data structure
+ Recursive data structure: The tree is also known as a recursive
+data structure. A tree can be defined as recursively because
+the distinguished node in a tree data structure is known as a
+root node. The root node of the tree contains a link to all the
+roots of its subtrees. The left subtree is shown in the yellow
+color in the below figure, and the right subtree is shown in the
+red color. The left subtree can be further split into subtrees
+shown in three different colors. Recursion means reducing
+something in a self-similar manner. So, this recursive property
+of the tree data structure is implemented in various
+applications.
+
+ Number of edges: If there are n nodes, then there would n-1
+edges. Each arrow in the structure represents the link or path. Each
+
+node, except the root node, will have atleast one incoming link
+known as an edge. There would be one link for the parent-child
+relationship.
+ Depth of node x: The depth of node x can be defined as the length
+of the path from the root to the node x. One edge contributes one-
+unit length in the path. So, the depth of node x can also be defined
+as the number of edges between the root node and the node x. The
+root node has 0 depth.
+ Height of node x: The height of node x can be defined as the
+longest path from the node x to the leaf node.
+Based on the properties of the Tree data structure, trees are
+classified into various categories.
+
+Implementation of Tree
+The tree data structure can be created by creating the nodes
+dynamically with the help of the pointers. The tree in the memory
+can be represented as shown below:
+
+1. struct node  
+2. {  
+3.   int data;  
+4. struct node *left;  
+5. struct node *right;   
+6. }  
+The above structure can only be defined for the binary trees because
+the binary tree can have utmost two children, and generic trees can
+have more than two children. The structure of the node for generic
+trees would be different as compared to the binary tree.
+Applications of trees
+The following are the applications of trees:
+ Storing naturally hierarchical data: Trees are used to store the
+data in the hierarchical structure. For example, the file system.
+The file system stored on the disc drive, the file and folder are
+in the form of the naturally hierarchical data and stored in the
+form of trees.
+
+ Organize data: It is used to organize data for efficient insertion,
+deletion and searching. For example, a binary tree has a logN
+time for searching an element.
+ Trie: It is a special kind of tree that is used to store the
+dictionary. It is a fast and efficient way for dynamic spell
+checking.
+ Heap: It is also a tree data structure implemented using arrays.
+It is used to implement priority queues.
+ B-Tree and B+Tree: B-Tree and B+Tree are the tree data
+structures used to implement indexing in databases.
+ Routing table: The tree data structure is also used to store the
+data in routing tables in the routers.
+types of Tree data structure
+The following are the types of a tree data structure:
+ General tree: The general tree is one of the types of tree data
+structure. In the general tree, a node can have either 0 or
+maximum n number of nodes. There is no restriction imposed
+on the degree of the node (the number of nodes that a node
+can contain). The topmost node in a general tree is known as a
+root node. The children of the parent node are known as
+subtrees.
+
+There can be n number of subtrees in a general tree. In the general
+tree, the subtrees are unordered as the nodes in the subtree cannot
+be ordered.
+Every non-empty tree has a downward edge, and these edges are
+connected to the nodes known as child nodes. The root node is
+labeled with level 0. The nodes that have the same parent are known
+as siblings.
+
+Esha,Beena,Deepa,Gilda,Amit,Geeta,Chetan
+a)Insert Esha
+
+b)Insert Beena
+
+(c) Insert Deepa
+Esha
+
+Esha
+
+Beenaa
+
+Esha
+
+Beenaa Glida
+
+Binary Search tree: Binary search tree is a non-linear data structure
+in which one node is connected to n number of nodes. It is a node-
+based data structure. A node can be represented in a binary search
+tree with three fields, i.e., data part, left-child, and right-child. A
+node can be connected to the utmost two child nodes in a binary
+search tree, so the node contains two pointers (left child and right
+child pointer).
+Every node in the left subtree must contain a value less than the
+value of the root node, and the value of each node in the right
+subtree must be bigger than the value of the root node.
+Deepa Amit
+
+Geeta
+
+Chetan
+
+AVL TREE (HEIGHT BALANCE TREE)
+
+AVL Tree is invented by GM Adelson - Velsky and EM Landis in
+1962. The tree is named AVL in honour of its inventors.
+AVL Tree can be defined as height balanced binary search tree in
+which each node is associated with a balance factor which is
+calculated by subtracting the height of its right sub-tree from that
+of its left sub-tree.
+Tree is said to be balanced if balance factor of each node is in
+between -1 to 1, otherwise, the tree will be unbalanced and need
+to be balanced.
+Balance Factor (k) = height (left(k)) - height (right(k))
+If balance factor of any node is 1, it means that the left sub-tree is
+one level higher than the right sub-tree.
+If balance factor of any node is 0, it means that the left sub-tree
+and right sub-tree contain equal height.
+If balance factor of any node is -1, it means that the left sub-tree is
+one level lower than the right sub-tree.
+An AVL tree is given in the following figure. We can see that,
+balance factor associated with each node is in between -1 and +1.
+Therefore, it is an example of AVL tree.
+
+AVL Rotations
+We perform rotation in AVL tree only in case if Balance Factor is
+other than -1, 0, and 1. There are basically four types of rotations
+which are as follows:
+1. L L rotation: Inserted node is in the left subtree of left subtree
+of A
+2. R R rotation : Inserted node is in the right subtree of right
+subtree of A
+3. L R rotation : Inserted node is in the right subtree of left
+subtree of A
+
+4. R L rotation : Inserted node is in the left subtree of right
+subtree of A
+Where node A is the node whose balance Factor is other than -1, 0,
+1.
+The first two rotations LL and RR are single rotations and the next
+two rotations LR and RL are double rotations. For a tree to be
+unbalanced, minimum height must be at least 2, Let us understand
+each rotation
+1. RR Rotation
+When BST becomes unbalanced, due to a node is inserted into the
+right subtree of the right subtree of A, then we perform RR
+rotation, RR rotation
+is an anticlockwise rotation, which is applied on the edge below a
+node having balance factor -2
+
+In above example, node A has balance factor -2 because a node C is
+inserted in the right subtree of A right subtree. We perform the RR
+rotation on the edge below A.
+2. LL Rotation
+
+When BST becomes unbalanced, due to a node is inserted into the
+left subtree of the left subtree of C, then we perform LL rotation, LL
+rotation
+is clockwise rotation, which is applied on the edge below a node
+having balance factor 2.
+
+In above example, node C has balance factor 2 because a node A is
+inserted in the left subtree of C left subtree. We perform the LL
+rotation on the edge below A.
+3. LR Rotation
+Double rotations are bit tougher than single rotation which has
+already explained above. LR rotation = RR rotation + LL rotation,
+i.e., first RR rotation is performed on subtree and then LL rotation is
+performed on full tree, by full tree we mean the first node from the
+path of inserted node whose balance factor is other than -1, 0, or 1.
+
+Let us understand each and every step very clearly:
+
+4. RL Rotation
+As already discussed, that double rotations are bit tougher than
+single rotation which has already explained above. R L rotation
+= LL rotation + RR rotation, i.e., first LL rotation is performed on
+subtree and then RR rotation is performed on full tree, by full tree
+we mean the first node fro m the path of inserted node whose
+balance factor is other than -1, 0, or 1.
+
+Q: Construct an AVL tree having the following elements
+
+H, I, J, B, A, E, C, F, D, G, K, L

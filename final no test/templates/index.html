@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero">
+    <div class="hero-content">
+        <h2>Transform PDFs into Smart Flashcards</h2>
+        <p>Upload your textbook or study material and let AI create perfect flashcards for you!</p>
+        
+        <div class="upload-container">
+            <form id="uploadForm" enctype="multipart/form-data">
+                <div class="file-input-container">
+                    <input type="file" id="pdfFile" name="pdf" accept=".pdf" style="display: none;">
+                    <label for="pdfFile" class="file-label">
+                        <i class="fas fa-file-pdf"></i>
+                        Choose PDF File
+                    </label>
+                    <span id="fileName">No file chosen</span>
+                </div>
+                <button type="submit" class="generate-btn">
+                    <i class="fas fa-magic"></i> Generate Flashcards
+                </button>
+            </form>
+        </div>
+
+        <div class="results-actions">
+            <a href="/flashcards" class="view-cards-btn">
+                <i class="fas fa-eye"></i> View Existing Flashcards
+            </a>
+            {% if session.user %}
+            <a href="/dashboard" class="view-cards-btn">
+                <i class="fas fa-tachometer-alt"></i> Go to Dashboard
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<div class="features">
+    <div class="feature-card">
+        <i class="fas fa-robot"></i>
+        <h3>AI Powered</h3>
+        <p>Advanced AI understands your content and creates relevant questions</p>
+    </div>
+    <div class="feature-card">
+        <i class="fas fa-bolt"></i>
+        <h3>Instant Generation</h3>
+        <p>Get your flashcards in seconds, not hours</p>
+    </div>
+    <div class="feature-card">
+        <i class="fas fa-graduation-cap"></i>
+        <h3>Study Smart</h3>
+        <p>Perfect for exam preparation and active recall</p>
+    </div>
+</div>
+
+<!-- Loading Section -->
+<div id="loading" class="loading hidden">
+    <div class="spinner"></div>
+    <p>AI is generating your flashcards... This may take a minute.</p>
+</div>
+
+<!-- Results Section -->
+<div id="results" class="results hidden"></div>
+{% endblock %}
